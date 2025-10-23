@@ -19,6 +19,54 @@
 
 ---
 
+/backend
+├─ pom.xml
+└─ src/
+├─ main/java/com/viper/booking/
+│ ├─ App.java
+│ ├─ Booking.java
+│ ├─ BookingService.java
+│ └─ BookingController.java
+└─ main/resources/
+└─ application.properties
+
+/frontend
+├─ package.json
+└─ src/
+├─ index.js
+├─ App.js
+└─ BookingForm.js
+
+
+---
+
+## Quick start (run locally)
+
+### Prerequisites
+- Java 17 (OpenJDK/Temurin recommended) — check: `java --version`
+- Maven — check: `mvn -v`
+- Node.js + npm — check: `node -v` and `npm -v`
+
+### Run backend
+Open a terminal, go to the backend folder, build and run:
+```bash
+cd backend
+mvn clean install
+mvn spring-boot:run
+
+Backend will be available at http://localhost:8080.
+Test the API:
+curl http://localhost:8080/api/bookings
+curl -X POST http://localhost:8080/api/bookings -H "Content-Type: application/json" -d '{"roomName":"Room A","bookedBy":"Viper"}'
+
+Run frontend
+
+Open another terminal, install packages and start:
+cd frontend
+npm install   # first time only
+npm start
+Open http://localhost:3000 in your browser and use the booking form. The frontend talks to http://localhost:8080/api/bookings.
+
 ## Tech stack
 - Backend: Java 25, Spring Boot
 - Frontend: React (Create React App)
